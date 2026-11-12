@@ -23,11 +23,15 @@ export function initMarquees(scope = document) {
     addEventListener('resize', onResize = (() => { let t; return () => { clearTimeout(t); t = setTimeout(ensureCopies, 200) } })())
 
     const period = () => set.offsetWidth
+    let pos = 0, last = null
     const tick = now => {
+      if (last == null) last = now
+      const dt = Math.min((now - last) / 1000, .1)
+      last = now
       if (running && visible && !hovered) {
-        const P = period()
-        const d = (now / 1000 * speed) % P
-        x = reverse ? -(P - d) : -d
+        const P = period() || 1
+        pos = (pos + dt * speed) % P
+        const x = reverse ? -(P - pos) : -pos
         inner.style.transform = `translate3d(${x}px,0,0)`
       }
       raf = requestAnimationFrame(tick)
