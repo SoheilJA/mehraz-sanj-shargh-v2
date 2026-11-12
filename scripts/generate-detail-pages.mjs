@@ -8,7 +8,7 @@ import { company } from '../src/data/company.js'
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const site = company.domain
 // import.meta.env only exists inside Vite; in plain Node fall back to VITE_BASE or '/'.
-const BASE_URL = (typeof import.meta.env !== 'undefined' && import.meta.env?.BASE_URL) ?? process.env.VITE_BASE ?? '/'
+const BASE_URL = import.meta.env?.BASE_URL ?? process.env.VITE_BASE ?? '/'
 
 const shell = ({ title, desc, bodyAttr, script, dirName, slug }) => `<!doctype html>
 <html lang="fa" dir="rtl">
