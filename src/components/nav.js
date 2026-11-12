@@ -1,0 +1,61 @@
+import { navigation } from '../data/navigation.js'
+import { el } from '../core/utils.js'
+import { gsap } from 'gsap'
+import { reduced } from '../core/motion.js'
+
+const logo = `<svg viewBox="0 0 48 48" aria-hidden="true">
+<rect x="4" y="4" width="40" height="40" rx="10" fill="none" stroke="#28D7C2" stroke-width="2.5"/>
+<path d="M24 8v32M8 24h32" stroke="#28D7C2" stroke-width="2" stroke-linecap="round"/>
+<circle cx="24" cy="24" r="4" fill="#28D7C2"/>
+<circle cx="24" cy="24" r="8.5" fill="none" stroke="#28D7C2" opacity=".4"/></svg>`
+
+export function initNav() {
+  const host = document.getElementById('site-nav')
+  if (!host) return
+  const path = location.pathname
+  const links = navigation.main.map(l => {
+    const active = (l.href === '/' && path === '/') || (l.href !== '/' && path.startsWith(l.href.replace('.html', '')))
+    return `<a href="${l.href}" ${active ? 'class="is-active" aria-current="page"' : ''}>${l.label}</a>`
+  }).join('')
+
+  host.appendChild(el(`
+    <div class="nav-shell" id="nav-shell">
+      <div class="wrap">
+        <div class="nav-inner">
+          <a class="brand" href="/" aria-label="مهراز سنج شرق — صفحهٔ اصلی">${logo}
+            <span class="brand-t"><b>مهراز سنج شرق</b><small>ENGINEERING SURVEYING</small></span></a>
+          <nav class="nav-links" aria-label="ناوبری اصلی">${links}</nav>
+          <div class="nav-actions">
+            <a class="nav-search" href="/search.html" aria-label="جست‌وجو در سایت"><i data-lucide="search"></i></a>
+            <a class="btn btn-primary btn-sm" href="/contact.html">دریافت مشاوره</a>
+            <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="باز و بستن منو">
+              <i data-lucide="menu"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      ${navigation.main.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
+      <a class="btn btn-primary btn-lg mobile-cta" href="/contact.html">دریافت مشاوره</a>
+    </div>`))
+
+  const shell = host.querySelector('#nav-shell')
+  const onScroll = () => shell.classList.toggle('is-scrolled', (window.scrollY || 0) > 36)
+  addEventListener('scroll', onScroll, { passive: true }); onScroll()
+
+  const menu = host.querySelector('#mobile-menu')
+  const toggle = host.querySelector('#nav-toggle')
+  let open = false
+  const setOpen = v => {
+    open = v
+    menu.hidden = !v
+    toggle.setAttribute('aria-expanded', String(v))
+    toggle.innerHTML = `<i data-lucide="${v ? 'x' : 'menu'}"></i>`
+    import('../components/icons.js').then(m => m.renderIcons())
+    document.documentElement.style.overflow = v ? 'hidden' : ''
+    if (v && !reduced) gsap.from(menu.querySelectorAll('a'), { y: 24, opacity: 0, stagger: .06, duration: .5, ease: 'power3.out' })
+    if (v) menu.querySelector('a')?.focus()
+  }
+  toggle.addEventListener('click', () => setOpen(!open))
+  addEventListener('keydown', e => { if (e.key === 'Escape' && open) setOpen(false) })
+}

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تماس با ما | مهراز سنج شرق</title>
+<meta name="description" content="تماس با شرکت مهندسی نقشه‌برداری مهراز سنج شرق — مشهد، میرزاکوچک خان ۸. دریافت مشاوره و درخواست خدمات نقشه‌برداری در کل استان خراسان.">
+<meta property="og:title" content="تماس با ما | مهراز سنج شرق">
+<meta property="og:description" content="دریافت مشاوره و درخواست خدمات نقشه‌برداری در کل استان خراسان.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:url" content="https://mehrazsanjshargh.ir/contact.html">
+<meta property="og:image" content="https://mehrazsanjshargh.ir/og-cover.svg">
+<meta name="theme-color" content="#0B1220">
+<link rel="stylesheet" href="/src/styles/main.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body class="page-contact">
+<a class="skip-link" href="#main">پرش به محتوای اصلی</a>
+<div id="preloader" role="status" aria-label="در حال بارگذاری">
+  <div class="pre-inner">
+    <svg class="pre-mark" viewBox="0 0 64 64" aria-hidden="true"><circle class="pre-ring" cx="32" cy="32" r="24"/><path d="M32 4v56M4 32h56"/><circle cx="32" cy="32" r="4"/></svg>
+    <div class="pre-brand">مهراز سنج شرق</div>
+    <div class="pre-bar"><span class="pre-fill"></span></div>
+    <div class="pre-pct">۰٪</div>
+  </div>
+</div>
+<header id="site-nav"></header>
+<main id="main">
+  <section class="section" style="padding-block:9rem 2rem">
+    <div class="wrap flex flex-col gap-4" data-reveal>
+      <p class="eyebrow">CONTACT</p>
+      <h1 class="h-sec">پروژهٔ شما، از یک گفت‌وگوی فنی شروع می‌شود</h1>
+      <div class="rule"></div>
+      <p class="lead" style="max-width:680px">تماس بگیرید یا فرم را تکمیل کنید؛ نیاز پروژه بررسی و در صورت لزوم بازدید میدانی انجام می‌شود. دامنهٔ کار، زمان‌بندی و خروجی‌ها به‌صورت مکتوب توافق می‌گردد.</p>
+    </div>
+  </section>
+  <section class="section" style="padding-block:1rem">
+    <div class="wrap grid md:grid-cols-5 gap-10 items-start">
+      <div class="md:col-span-2 flex flex-col gap-6" data-reveal>
+        <div id="contact-cards" class="flex flex-col gap-4"></div>
+        <div id="map-slot" class="card" style="min-height:220px;display:grid;place-items:center;overflow:hidden"></div>
+      </div>
+      <div class="md:col-span-3" data-reveal data-delay=".1">
+        <div class="card p-6 md:p-8">
+          <form id="contact-form" class="flex flex-col gap-5" novalidate>
+            <div class="field">
+              <label for="f-name">نام و نام خانوادگی</label>
+              <input id="f-name" name="name" type="text" required autocomplete="name">
+              <p class="f-err"></p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+              <div class="field">
+                <label for="f-phone">شمارهٔ تماس</label>
+                <input id="f-phone" name="phone" type="tel" required dir="ltr" style="text-align:end" autocomplete="tel">
+                <p class="f-err"></p>
+              </div>
+              <div class="field">
+                <label for="f-topic">موضوع درخواست</label>
+                <select id="f-topic" name="topic" required>
+                  <option value="">انتخاب کنید…</option>
+                  <option>پیاده‌سازی و کنترل هندسی</option>
+                  <option>نقشه‌برداری توپوگرافی و As-Built</option>
+                  <option>نقشه‌های UTM و امور ثبتی</option>
+                  <option>محاسبهٔ احجام عملیات خاکی</option>
+                  <option>سایر موضوعات</option>
+                </select>
+                <p class="f-err"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-msg">توضیح کوتاه پروژه</label>
+              <textarea id="f-msg" name="message" rows="5" required placeholder="موقعیت پروژه، نوع درخواست و زمان‌بندی موردنظر"></textarea>
+              <p class="f-err"></p>
+            </div>
+            <div class="flex flex-wrap gap-3 items-center">
+              <button class="btn btn-primary btn-lg" type="submit" data-magnetic><i data-lucide="send"></i> ارسال درخواست</button>
+              <a class="btn btn-ghost" id="mailto-btn" href="#">ارسال با ایمیل</a>
+            </div>
+          </form>
+          <div id="form-ok" class="form-ok" hidden role="status">
+            <i data-lucide="check" style="color:var(--color-teal);width:26px;height:26px"></i>
+            <b>درخواست شما آمادهٔ ارسال شد</b>
+            <p class="lead" style="font-size:.92rem">پیام شما در برنامهٔ ایمیل باز شده است؛ در صورت باز نشدن، به‌صورت دستی ارسال کنید یا مستقیماً با ما تماس بگیرید: <span dir="ltr">۰۹۱۵۴۲۸۴۳۳۵</span></p>
+            <button class="btn btn-ghost btn-sm" type="button" id="form-reset">ثبت درخواست جدید</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<noscript><p class="noscript">برای نمایش کامل این صفحه، جاوااسکریپت را فعال کنید. اطلاعات تماس: ۰۹۱۵۴۲۸۴۳۳۵ — mehrazsanjshargh@gmail.com</p></noscript>
+<script type="module" src="/src/pages/contact.js"></script>
+</body>
+</html>
