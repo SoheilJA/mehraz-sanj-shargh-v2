@@ -43,7 +43,7 @@ document.getElementById('mq-cats').innerHTML = setOf(Object.values(cats).map(c =
 
 /* ---------- 04 services ecosystem ---------- */
 document.getElementById('svc-grid').innerHTML = services.map(s => `
-  <a class="card svc-panel" href="${import.meta.env.BASE_URL}services/${s.slug}.html" data-reveal>
+  <a class="card svc-panel" href="${import.meta.env.BASE_URL}services/${s.slug}.html">
     <div class="flex justify-between items-start">
       <span class="num-i">${s.num}</span><span class="eyebrow" style="letter-spacing:.2em">${s.en}</span>
     </div>
