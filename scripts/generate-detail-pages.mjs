@@ -22,8 +22,8 @@ const shell = ({ title, desc, bodyAttr, script, dirName, slug }) => `<!doctype h
 <meta property="og:url" content="https://${site}/${dirName}/${slug}.html">
 <meta property="og:image" content="https://${site}/og-cover.svg">
 <meta name="theme-color" content="#0B1220">
-<link rel="stylesheet" href="/src/styles/main.css">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="${import.meta.env.BASE_URL}src/styles/main.css">
+<link rel="icon" href="${import.meta.env.BASE_URL}favicon.svg" type="image/svg+xml">
 </head>
 <body>
 <a class="skip-link" href="#main">پرش به محتوای اصلی</a>

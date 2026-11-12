@@ -32,7 +32,7 @@ if (!a) {
           <div class="card p-6 flex flex-col gap-3" style="margin-top:1rem">
             <span class="eyebrow">GET IN TOUCH</span>
             <p class="lead" style="font-size:.95rem">پرسش فنی دربارهٔ همین موضوع دارید؟ تیم مهراز سنج شرق پاسخگوست.</p>
-            <a class="btn btn-primary" data-magnetic href="/contact.html">دریافت مشاوره</a>
+            <a class="btn btn-primary" data-magnetic href="${import.meta.env.BASE_URL}contact.html">دریافت مشاوره</a>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@ if (!a) {
         </div>
         <div class="grid md:grid-cols-3 gap-5" data-reveal-group>
           ${others.map(x => `
-            <a class="card art-card" href="/journal/${x.slug}.html">
+            <a class="card art-card" href="${import.meta.env.BASE_URL}journal/${x.slug}.html">
               <span class="ai">0${articles.indexOf(x) + 1}</span><span class="tag tag--teal">${x.cat}</span>
               <h3>${x.title}</h3><p class="art-excerpt">${x.excerpt}</p>
               <span class="mute" style="font-size:.78rem">زمان مطالعه: ${faDigits(x.min)} دقیقه</span>

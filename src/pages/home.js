@@ -43,7 +43,7 @@ document.getElementById('mq-cats').innerHTML = setOf(Object.values(cats).map(c =
 
 /* ---------- 04 services ecosystem ---------- */
 document.getElementById('svc-grid').innerHTML = services.map(s => `
-  <a class="card svc-panel" href="/services/${s.slug}.html" data-reveal>
+  <a class="card svc-panel" href="${import.meta.env.BASE_URL}services/${s.slug}.html" data-reveal>
     <div class="flex justify-between items-start">
       <span class="num-i">${s.num}</span><span class="eyebrow" style="letter-spacing:.2em">${s.en}</span>
     </div>
@@ -124,7 +124,7 @@ drawContour()
 const grid = document.getElementById('proj-grid')
 const filters = document.getElementById('proj-filters')
 const cardHTML = p => `
-  <a class="card proj-card" href="/projects/${p.slug}.html" data-cat="${p.cat}">
+  <a class="card proj-card" href="${import.meta.env.BASE_URL}projects/${p.slug}.html" data-cat="${p.cat}">
     <div class="pv">${visual(cats[p.cat].visual)}</div>
     <div class="pb">
       <span class="tag tag--teal">${catLabel(p.cat)}</span>
@@ -152,7 +152,7 @@ filters.addEventListener('click', e => {
 /* ---------- 07 field visual / 08 equipment teaser ---------- */
 document.getElementById('field-visual').innerHTML = `<div class="card p-6">${visual('station')}</div>`
 document.getElementById('equip-teaser').innerHTML = equipment.map(e => `
-  <a class="card p-6 flex flex-col gap-4" href="/equipment.html">
+  <a class="card p-6 flex flex-col gap-4" href="${import.meta.env.BASE_URL}equipment.html">
     <span class="eyebrow" style="letter-spacing:.22em">${e.en}</span>
     <div>${visual(e.visual)}</div>
     <h3 class="h-sub">${e.title}</h3>
@@ -185,7 +185,7 @@ document.getElementById('tst-set').innerHTML = testimonials.map(t => `
 const pick = ['engineering-surveying-principles', 'high-rise-geometric-control', 'gnss-in-civil-projects']
 document.getElementById('journal-teaser').innerHTML = pick.map((s, i) => {
   const a = articles.find(x => x.slug === s)
-  return `<a class="card art-card" href="/journal/${a.slug}.html">
+  return `<a class="card art-card" href="${import.meta.env.BASE_URL}journal/${a.slug}.html">
     <span class="ai">0${i + 1}</span><span class="tag tag--teal">${a.cat}</span>
     <h3>${a.title}</h3><p class="art-excerpt">${a.excerpt}</p>
     <span class="mute" style="font-size:.78rem">زمان مطالعه: ${fa(a.min)} دقیقه</span>

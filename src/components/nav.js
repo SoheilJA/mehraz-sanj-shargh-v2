@@ -13,8 +13,11 @@ export function initNav() {
   const host = document.getElementById('site-nav')
   if (!host) return
   const path = location.pathname
+  const base = import.meta.env.BASE_URL
   const links = navigation.main.map(l => {
-    const active = (l.href === '/' && path === '/') || (l.href !== '/' && path.startsWith(l.href.replace('.html', '')))
+    const norm = l.href.replace(/index\.html$/, '').replace(/\/$/, '') || base
+    const isHome = l.href === base || l.href === '/'
+    const active = isHome ? (path === norm || path === norm.replace(/\/$/, '') + '/') : path.startsWith(norm)
     return `<a href="${l.href}" ${active ? 'class="is-active" aria-current="page"' : ''}>${l.label}</a>`
   }).join('')
 
@@ -22,12 +25,12 @@ export function initNav() {
     <div class="nav-shell" id="nav-shell">
       <div class="wrap">
         <div class="nav-inner">
-          <a class="brand" href="/" aria-label="مهراز سنج شرق — صفحهٔ اصلی">${logo}
+          <a class="brand" href="${import.meta.env.BASE_URL}" aria-label="مهراز سنج شرق — صفحهٔ اصلی">${logo}
             <span class="brand-t"><b>مهراز سنج شرق</b><small>ENGINEERING SURVEYING</small></span></a>
           <nav class="nav-links" aria-label="ناوبری اصلی">${links}</nav>
           <div class="nav-actions">
-            <a class="nav-search" href="/search.html" aria-label="جست‌وجو در سایت"><i data-lucide="search"></i></a>
-            <a class="btn btn-primary btn-sm" href="/contact.html">دریافت مشاوره</a>
+            <a class="nav-search" href="${import.meta.env.BASE_URL}search.html" aria-label="جست‌وجو در سایت"><i data-lucide="search"></i></a>
+            <a class="btn btn-primary btn-sm" href="${import.meta.env.BASE_URL}contact.html">دریافت مشاوره</a>
             <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="باز و بستن منو">
               <i data-lucide="menu"></i></button>
           </div>
@@ -36,7 +39,7 @@ export function initNav() {
     </div>
     <div class="mobile-menu" id="mobile-menu" hidden>
       ${navigation.main.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
-      <a class="btn btn-primary btn-lg mobile-cta" href="/contact.html">دریافت مشاوره</a>
+      <a class="btn btn-primary btn-lg mobile-cta" href="${import.meta.env.BASE_URL}contact.html">دریافت مشاوره</a>
     </div>`))
 
   const shell = host.querySelector('#nav-shell')

@@ -8,7 +8,7 @@ const grid = document.getElementById('art-grid')
 const filters = document.getElementById('art-filters')
 
 const card = a => `
-  <a class="card art-card" href="/journal/${a.slug}.html" data-cat="${a.cat}">
+  <a class="card art-card" href="${import.meta.env.BASE_URL}journal/${a.slug}.html" data-cat="${a.cat}">
     <span class="ai">${fa(String(articles.indexOf(a) + 1)).padStart(2, '۰')}</span>
     <span class="tag tag--teal">${a.cat}</span>
     <h3>${a.title}</h3>

@@ -20,7 +20,25 @@ function findHtmlEntries(dir, out = {}) {
   return out
 }
 
+// Rewrite root-absolute link hrefs in HTML (internal navigation) with the
+// configured base, so the site works under GitHub Pages sub-paths.
+function htmlBaseLinks() {
+  return {
+    name: 'html-base-links',
+    apply: 'build',
+    transformIndexHtml(html, ctx) {
+      const base = ctx?.server?.config?.base ?? process.env.VITE_BASE ?? '/'
+      // Only prefix internal navigation links; leave Vite-rewritten asset URLs
+      // (already prefixed with base, no leading slash) untouched.
+      return html.replace(/(href=")\/((?!\/)[^"]*")/g, (_, a, rest) =>
+        rest.startsWith(base.replace(/^\//, '').split('/')[0] + '/') ? `${a}/${rest}` : `${a}${base}${rest}`
+      )
+    }
+  }
+}
+
 export default defineConfig({
-  plugins: [tailwindcss()],
+  base: process.env.VITE_BASE ?? '/',
+  plugins: [tailwindcss(), htmlBaseLinks()],
   build: { rollupOptions: { input: findHtmlEntries(root) } }
 })

@@ -10,7 +10,7 @@ export function initMarquees(scope = document) {
     const speed = +(wrap.dataset.speed || 60)   // px per second
     const reverse = wrap.dataset.reverse === '1'
     const pauseHover = wrap.dataset.hover !== '0'
-    let x = 0, running = true, hovered = false, visible = true, raf = null
+    let running = true, hovered = false, visible = true, raf = null
 
     const ensureCopies = () => {
       const need = Math.ceil(inner.parentElement.clientWidth / set.offsetWidth) + 1

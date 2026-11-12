@@ -8,7 +8,7 @@ const grid = document.getElementById('proj-grid')
 const filters = document.getElementById('proj-filters')
 
 grid.innerHTML = projects.map(p => `
-  <a class="card proj-card" href="/projects/${p.slug}.html" data-cat="${p.cat}">
+  <a class="card proj-card" href="${import.meta.env.BASE_URL}projects/${p.slug}.html" data-cat="${p.cat}">
     <div class="pv">${visual(cats[p.cat].visual)}</div>
     <div class="pb">
       <span class="tag tag--teal">${catLabel(p.cat)}</span>

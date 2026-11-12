@@ -4,7 +4,7 @@ import { visual } from '../components/visuals.js'
 import { renderIcons } from '../components/icons.js'
 
 document.getElementById('svc-list').innerHTML = services.map(s => `
-  <a class="card svc-panel" href="/services/${s.slug}.html" data-reveal>
+  <a class="card svc-panel" href="${import.meta.env.BASE_URL}services/${s.slug}.html" data-reveal>
     <div class="flex justify-between items-start">
       <span class="num-i">${s.num}</span><span class="eyebrow" style="letter-spacing:.2em">${s.en}</span>
     </div>

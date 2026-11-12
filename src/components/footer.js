@@ -26,9 +26,9 @@ export function initFooter() {
         </div>
         <nav aria-label="پیوندهای سایت"><h4>SITE MAP</h4>
           <ul>${navigation.main.map(l => `<li><a href="${l.href}">${l.label}</a></li>`).join('')}
-          <li><a href="/faq.html">پرسش‌های متداول</a></li></ul></nav>
+          <li><a href="${import.meta.env.BASE_URL}faq.html">پرسش‌های متداول</a></li></ul></nav>
         <nav aria-label="خدمات"><h4>SERVICES</h4>
-          <ul>${services.map(s => `<li><a href="/services/${s.slug}.html">${s.title}</a></li>`).join('')}</ul></nav>
+          <ul>${services.map(s => `<li><a href="${import.meta.env.BASE_URL}services/${s.slug}.html">${s.title}</a></li>`).join('')}</ul></nav>
         <div><h4>CONTACT</h4>
           <ul>
             <li>${company.manager} — ${company.managerRole}</li>

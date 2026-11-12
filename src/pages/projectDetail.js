@@ -46,10 +46,10 @@ if (!p) {
           <div class="card p-6 flex flex-col gap-3">
             <span class="eyebrow">SERVICES USED</span>
             <div class="flex flex-wrap gap-2">
-              ${p.services.map(sl => `<a class="tag tag--teal" href="/services/${sl}.html">${serviceBySlug(sl)?.title ?? sl}</a>`).join('')}
+              ${p.services.map(sl => `<a class="tag tag--teal" href="${import.meta.env.BASE_URL}services/${sl}.html">${serviceBySlug(sl)?.title ?? sl}</a>`).join('')}
             </div>
           </div>
-          <a class="btn btn-primary" data-magnetic href="/contact.html">درخواست مشابه این خدمت</a>
+          <a class="btn btn-primary" data-magnetic href="${import.meta.env.BASE_URL}contact.html">درخواست مشابه این خدمت</a>
         </div>
       </div>
     </section>
@@ -62,7 +62,7 @@ if (!p) {
         </div>
         <div class="proj-grid" data-reveal-group>
           ${[...others, ...related].map(x => `
-            <a class="card proj-card" href="/projects/${x.slug}.html">
+            <a class="card proj-card" href="${import.meta.env.BASE_URL}projects/${x.slug}.html">
               <div class="pv">${visual(cats[x.cat].visual)}</div>
               <div class="pb"><span class="tag tag--teal">${catLabel(x.cat)}</span><h3>${x.title}</h3>
               <span class="link-arrow">مشاهدهٔ پروژه <i data-lucide="arrow-left"></i></span></div>
@@ -73,7 +73,7 @@ if (!p) {
     <section class="section" style="text-align:center">
       <div class="wrap flex flex-col items-center gap-5" data-reveal>
         <h2 class="h-sec">پروژهٔ مشابه دارید؟</h2>
-        <a class="btn btn-primary btn-lg" data-magnetic href="/contact.html">دریافت مشاوره</a>
+        <a class="btn btn-primary btn-lg" data-magnetic href="${import.meta.env.BASE_URL}contact.html">دریافت مشاوره</a>
       </div>
     </section>`))
 }

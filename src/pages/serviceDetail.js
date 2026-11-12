@@ -51,7 +51,7 @@ if (!s) {
               ${s.outputs.map(o => `<li class="flex items-start gap-2"><i data-lucide="check" style="color:var(--color-teal);width:18px;height:18px;flex:none;margin-top:.35rem"></i><span class="lead" style="font-size:.92rem">${o}</span></li>`).join('')}
             </ul>
           </div>
-          <a class="btn btn-primary" data-magnetic href="/contact.html">درخواست این خدمت</a>
+          <a class="btn btn-primary" data-magnetic href="${import.meta.env.BASE_URL}contact.html">درخواست این خدمت</a>
         </div>
       </div>
     </section>
@@ -77,7 +77,7 @@ if (!s) {
         </div>
         <div class="proj-grid" data-reveal-group>
           ${related.map(p => `
-            <a class="card proj-card" href="/projects/${p.slug}.html">
+            <a class="card proj-card" href="${import.meta.env.BASE_URL}projects/${p.slug}.html">
               <div class="pv">${visual('profile')}</div>
               <div class="pb"><h3>${p.title}</h3>
               <p class="lead" style="font-size:.85rem">${p.overview.slice(0, 100)}…</p>
@@ -95,7 +95,7 @@ if (!s) {
         </div>
         <div class="grid md:grid-cols-3 gap-5" data-reveal-group>
           ${others.map(x => `
-            <a class="card p-6 flex flex-col gap-3" href="/services/${x.slug}.html">
+            <a class="card p-6 flex flex-col gap-3" href="${import.meta.env.BASE_URL}services/${x.slug}.html">
               <span class="num-i">${x.num}</span>
               <h3 class="h-sub" style="font-size:1.05rem">${x.title}</h3>
               <p class="lead" style="font-size:.88rem">${x.tagline}</p>
@@ -106,7 +106,7 @@ if (!s) {
     <section class="section" style="text-align:center">
       <div class="wrap flex flex-col items-center gap-5" data-reveal>
         <h2 class="h-sec">پروژهٔ شما، از یک گفت‌وگوی فنی شروع می‌شود</h2>
-        <a class="btn btn-primary btn-lg" data-magnetic href="/contact.html">دریافت مشاوره</a>
+        <a class="btn btn-primary btn-lg" data-magnetic href="${import.meta.env.BASE_URL}contact.html">دریافت مشاوره</a>
       </div>
     </section>`))
 

@@ -25,7 +25,7 @@ main.appendChild(frag(`
   <section class="section" style="text-align:center">
     <div class="wrap flex flex-col items-center gap-5" data-reveal>
       <h2 class="h-sec">برای پروژه‌تان تجهیزات و تیم مناسب را هماهنگ می‌کنیم</h2>
-      <a class="btn btn-primary btn-lg" data-magnetic href="/contact.html">دریافت مشاوره</a>
+      <a class="btn btn-primary btn-lg" data-magnetic href="${import.meta.env.BASE_URL}contact.html">دریافت مشاوره</a>
     </div>
   </section>`))
 

@@ -13,10 +13,10 @@
 }
 
 /* ---------- fonts (self-hosted) ---------- */
-@font-face{font-family:"Vazirmatn";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/Vazirmatn-Regular.woff2") format("woff2")}
-@font-face{font-family:"Vazirmatn";font-style:normal;font-weight:500;font-display:swap;src:url("/fonts/Vazirmatn-Medium.woff2") format("woff2")}
-@font-face{font-family:"Vazirmatn";font-style:normal;font-weight:700;font-display:swap;src:url("/fonts/Vazirmatn-Bold.woff2") format("woff2")}
-@font-face{font-family:"Vazirmatn";font-style:normal;font-weight:900;font-display:swap;src:url("/fonts/Vazirmatn-Black.woff2") format("woff2")}
+@font-face{font-family:"Vazirmatn";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/Vazirmatn-Regular.woff2") format("woff2")}
+@font-face{font-family:"Vazirmatn";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/Vazirmatn-Medium.woff2") format("woff2")}
+@font-face{font-family:"Vazirmatn";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/Vazirmatn-Bold.woff2") format("woff2")}
+@font-face{font-family:"Vazirmatn";font-style:normal;font-weight:900;font-display:swap;src:url("../fonts/Vazirmatn-Black.woff2") format("woff2")}
 
 /* ---------- base ---------- */
 html{background:var(--color-navy);color-scheme:dark;scroll-behavior:auto}
@@ -156,12 +156,12 @@ img,svg,canvas{display:block;max-width:100%}
 @media(max-width:767px){.hud-chip{display:none}.hud-read{inset-block-end:1.4rem}}
 
 /* ---------- marquee ---------- */
-.marquee{overflow:hidden;
+.marquee{overflow:hidden;direction:ltr;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.mq-inner{display:flex;width:max-content;direction:ltr;will-change:transform}
+.mq-inner{display:flex;width:max-content;will-change:transform}
 .mq-set{display:flex;gap:var(--mq-gap,2.5rem);padding-inline-end:var(--mq-gap,2.5rem)}
-.mq-item{flex:none;display:flex;align-items:center;white-space:nowrap}
+.mq-item{flex:none;display:flex;align-items:center;white-space:nowrap;direction:rtl}
 .mq--ghost{--mq-gap:4rem}
 .mq--ghost .mq-item{font-weight:900;font-size:clamp(1.6rem,3.5vw,3rem);color:transparent;
   -webkit-text-stroke:1px rgba(148,163,184,.35);direction:ltr;letter-spacing:.12em}
