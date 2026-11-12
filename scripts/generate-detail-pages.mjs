@@ -7,6 +7,8 @@ import { company } from '../src/data/company.js'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const site = company.domain
+// import.meta.env only exists inside Vite; in plain Node fall back to VITE_BASE or '/'.
+const BASE_URL = (typeof import.meta.env !== 'undefined' && import.meta.env?.BASE_URL) ?? process.env.VITE_BASE ?? '/'
 
 const shell = ({ title, desc, bodyAttr, script, dirName, slug }) => `<!doctype html>
 <html lang="fa" dir="rtl">
@@ -22,8 +24,8 @@ const shell = ({ title, desc, bodyAttr, script, dirName, slug }) => `<!doctype h
 <meta property="og:url" content="https://${site}/${dirName}/${slug}.html">
 <meta property="og:image" content="https://${site}/og-cover.svg">
 <meta name="theme-color" content="#0B1220">
-<link rel="stylesheet" href="${import.meta.env.BASE_URL}src/styles/main.css">
-<link rel="icon" href="${import.meta.env.BASE_URL}favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="${BASE_URL}src/styles/main.css">
+<link rel="icon" href="${BASE_URL}favicon.svg" type="image/svg+xml">
 </head>
 <body>
 <a class="skip-link" href="#main">پرش به محتوای اصلی</a>
