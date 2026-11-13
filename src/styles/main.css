@@ -168,12 +168,12 @@ img,svg,canvas{display:block;max-width:100%}
 .mq-item{flex:none;display:flex;align-items:center;white-space:nowrap;direction:rtl}
 .mq--ghost{--mq-gap:4rem}
 .mq--ghost .mq-item{font-weight:900;font-size:clamp(1.6rem,3.5vw,3rem);color:transparent;
-  -webkit-text-stroke:1px rgba(40,215,194,.55);direction:ltr;letter-spacing:.12em}
+  -webkit-text-stroke:1px rgba(241,245,249,.7);direction:ltr;letter-spacing:.12em}
 .mq--chips .mq-item{gap:.5rem;font-weight:700;color:var(--color-ink)}
-.mq--cats .mq-item{font-size:.85rem;color:var(--color-sub)}
+.mq--cats .mq-item{font-size:.85rem;color:var(--color-ink)}
 .mq--cats .mq-item::after{content:"/";color:var(--color-teal);margin-inline-start:var(--mq-gap,2.5rem)}
 .mq--caps .mq-item{background:var(--color-slate);border:1px solid var(--color-line);
-  border-radius:999px;padding:.55rem 1.2rem;font-size:.85rem;font-weight:600;color:var(--color-sub)}
+  border-radius:999px;padding:.55rem 1.2rem;font-size:.85rem;font-weight:600;color:var(--color-ink)}
 
 /* ---------- diagrams ---------- */
 .diag{width:100%;height:auto;color:var(--color-sub)}
