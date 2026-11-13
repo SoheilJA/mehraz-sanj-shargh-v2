@@ -108,7 +108,7 @@ img,svg,canvas{display:block;max-width:100%}
   backdrop-filter:blur(10px);display:flex;flex-direction:column;justify-content:center;padding:5rem 2rem}
 .mobile-menu a{font-size:1.35rem;font-weight:700;padding:.8rem 0;color:var(--color-sub)}
 .mobile-menu a:hover{color:var(--color-teal)}
-.mobile-menu .mobile-cta{margin-block-start:1.5rem;text-align:center;justify-content:center}
+.mobile-menu .mobile-cta{margin-block-start:1.5rem;text-align:center;justify-content:center;color:var(--color-navy)}
 
 /* ---------- preloader ---------- */
 #preloader{position:fixed;inset:0;z-index:120;background:var(--color-navy);
