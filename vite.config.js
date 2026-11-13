@@ -14,6 +14,8 @@ function findHtmlEntries(dir, out = {}) {
     if (statSync(p).isDirectory()) findHtmlEntries(p, out)
     else if (name.endsWith('.html')) {
       const rel = relative(root, p).replace(/\\/g, '/').replace(/\.html$/, '')
+      // Search feature temporarily disabled — do not build its page.
+      if (rel === 'search') continue
       out[rel === 'index' ? 'index' : rel] = p
     }
   }

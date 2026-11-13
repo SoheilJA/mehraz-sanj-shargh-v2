@@ -1,5 +1,5 @@
 import { navigation } from '../data/navigation.js'
-import { el } from '../core/utils.js'
+import { frag } from '../core/utils.js'
 import { gsap } from 'gsap'
 import { reduced } from '../core/motion.js'
 
@@ -21,16 +21,15 @@ export function initNav() {
     return `<a href="${l.href}" ${active ? 'class="is-active" aria-current="page"' : ''}>${l.label}</a>`
   }).join('')
 
-  host.appendChild(el(`
+  host.appendChild(frag(`
     <div class="nav-shell" id="nav-shell">
       <div class="wrap">
         <div class="nav-inner">
           <a class="brand" href="${import.meta.env.BASE_URL}" aria-label="مهراز سنج شرق — صفحهٔ اصلی">${logo}
-            <span class="brand-t"><b>مهراز سنج شرق</b><small>ENGINEERING SURVEYING</small></span></a>
+            <span class="brand-t"><b>مهراز سنج شرق</b></span></a>
           <nav class="nav-links" aria-label="ناوبری اصلی">${links}</nav>
           <div class="nav-actions">
-            <a class="nav-search" href="${import.meta.env.BASE_URL}search.html" aria-label="جست‌وجو در سایت"><i data-lucide="search"></i></a>
-            <a class="btn btn-primary btn-sm" href="${import.meta.env.BASE_URL}contact.html">دریافت مشاوره</a>
+            <a class="btn btn-primary btn-sm nav-cta" href="${import.meta.env.BASE_URL}contact.html">مشاوره</a>
             <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="باز و بستن منو">
               <i data-lucide="menu"></i></button>
           </div>
